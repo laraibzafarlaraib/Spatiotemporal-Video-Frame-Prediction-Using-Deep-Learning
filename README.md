@@ -1,4 +1,4 @@
-# 🎬 Spatiotemporal Video Frame Prediction Using Deep Learning
+# Spatiotemporal Video Frame Prediction Using Deep Learning
 ### Comparative Study: ConvLSTM vs. PredRNN vs. Spatial-Temporal Vision Transformer on UCF101
 
 [![Python](https://img.shields.io/badge/Python-3.10%2B-blue.svg)](https://www.python.org/)
@@ -8,7 +8,7 @@
 
 ---
 
-## 📌 Overview
+##  Overview
 
 Predicting subsequent frames in real-world video requires learning both **fine spatial appearance** (shapes, textures) and **temporal motion dynamics** (direction, acceleration). 
 
@@ -22,7 +22,7 @@ The pipeline takes **10 sequential frames** ($64 \times 64 \times 3$) as input a
 
 ---
 
-## 🏗️ Architecture Comparison
+## Architecture Comparison
 
 ```
 Input Video Sequence: 10 Frames [B, 10, 64, 64, 3]
@@ -42,13 +42,13 @@ Metrics (MSE & SSIM) + MoviePy Video Rendering + Gradio UI
 
 ---
 
-## 📊 Benchmark Results
+## Results
 
 Evaluated across test sequences under identical experimental conditions:
 
 | Architecture | MSE (Lower is better) | SSIM (Higher is better) | Strengths & Observations |
 | :--- | :---: | :---: | :--- |
-| **PredRNN** 🏆 | **`0.0068`** | **`0.7093`** | **Best overall performer.** Retains edge clarity and spatial detail over extended timesteps without excessive blurring. |
+| **PredRNN**  | **`0.0068`** | **`0.7093`** | **Best overall performer.** Retains edge clarity and spatial detail over extended timesteps without excessive blurring. |
 | **ConvLSTM** | `0.0070` | `0.6913` | Strong spatiotemporal baseline with stable gradients; slight temporal smoothing across later frames. |
 | **CNN-Transformer** | `0.0126` | `0.4945` | Fast attention-based convergence, but standard dense decoders suffer from spatial reconstruction loss on frame synthesis. |
 
@@ -56,7 +56,7 @@ Evaluated across test sequences under identical experimental conditions:
 
 ---
 
-## 🛠️ Tech Stack & Libraries
+## Tech Stack & Libraries
 
 - **Deep Learning Framework**: TensorFlow / Keras (ConvLSTM2D, TimeDistributed, MultiHeadAttention, Conv3D)
 - **Computer Vision**: OpenCV (`cv2`) for frame decimation, scaling, and normalization
@@ -67,23 +67,8 @@ Evaluated across test sequences under identical experimental conditions:
 
 ---
 
-## 📂 Project Structure
 
-```bash
-├── video-prediction-using-deep-learning.ipynb   # Main end-to-end pipeline notebook
-├── README.md                                    # Project documentation
-├── videos/                                      # Rendered MP4 prediction outputs
-│   ├── input.mp4                                # 10-frame prompt sequence
-│   ├── ground_truth.mp4                         # Actual future sequence
-│   ├── convlstm_pred.mp4                        # ConvLSTM generated sequence
-│   ├── predrnn_pred.mp4                         # PredRNN generated sequence
-│   └── transformer_pred.mp4                     # Transformer generated sequence
-└── requirements.txt                             # Python dependencies
-```
-
----
-
-## 🚀 Getting Started
+## Getting Started
 
 ### 1. Prerequisites
 Clone the repository and install requirements:
@@ -107,7 +92,7 @@ python -c "import gradio as gr; ..." # Or execute Step 8 inside the notebook
 
 ---
 
-## 💡 Key Findings & Learnings
+## Key Findings & Learnings
 
 1. **Spatial Inductive Bias Matters**: While Transformers excel at global attention, autoregressive spatial frame generation requires localized inductive biases. Convolutional recurrence (ConvLSTM & PredRNN) consistently outperformed vanilla attention on pixel synthesis.
 2. **SSIM vs. MSE Discrepancy**: MSE can reward blurry average predictions because blur minimizes Euclidean distance across moving edges. SSIM proved to be a far better indicator of perceptual visual quality.
@@ -115,7 +100,7 @@ python -c "import gradio as gr; ..." # Or execute Step 8 inside the notebook
 
 ---
 
-## 👤 Author
+## Author
 
 - **Laraib Zafar**
 - [LinkedIn](https://www.linkedin.com) • [GitHub](https://github.com)
